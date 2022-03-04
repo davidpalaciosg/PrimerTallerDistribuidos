@@ -1,5 +1,5 @@
 G3;334;Aguilar,Maria;5;5
-G5;444;Rogriiguez,José;4;3
+G5;444;Rogriiguez,Jose;4;3
 G6;111;Blanco,Alexandra;3;4
 G3;123;Bolivar,Elizabeth;2.5;5
 G6;102;Burgos,Daniel;5;5
