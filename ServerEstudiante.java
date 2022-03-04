@@ -6,7 +6,6 @@ public class ServerEstudiante {
         } catch (Exception e) {
             System.err.println("System exception" + e);
         }
-        
     }
     
 }

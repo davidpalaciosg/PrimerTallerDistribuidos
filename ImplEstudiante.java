@@ -14,6 +14,7 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
         super();
         estudiantes = new ArrayList<>();
         try {
+            leerArchivo("Estudiantes.txt");
             System.out.println("Rebind Object " + name);
             Naming.rebind(name, this);
         } catch (Exception e) {
@@ -117,10 +118,23 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
     }
 
     @Override
-    public ArrayList<Estudiante> getMiembrosGrupo(String grupo) throws RemoteException {
+    public String getMiembrosGrupo(String grupo) throws RemoteException {
         ArrayList<Estudiante> miembros = new ArrayList<>();
-        estudiantes.stream().filter(es -> es.getGrupo() == grupo).forEach(es -> miembros.add(es));
-        return miembros;
+        for (Estudiante e : estudiantes) {
+            if (e.getGrupo().equalsIgnoreCase(grupo)) {
+                miembros.add(e);
+            }
+        }
+        String cadena="";
+        int i=1;
+        for (Estudiante e : miembros) {
+            cadena += "Miembro #" +i + "\n"
+                    + " Nombre: " + e.getNombre() + "\n"
+                    + " Grupo: " + e.getGrupo() + "\n"
+                    + " Notas: " + e.getNotas().toString() + "\n\n";
+            i++;
+        }
+        return cadena;
     }
 
     public Estudiante getEstudianteById(int id) {
@@ -129,7 +143,7 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
             e = estudiantes.stream().filter(es -> es.getId() == id).findFirst().get();
         } catch (Exception e1) {
             // Print error
-            System.out.println("Error al buscar el estudiante");
+            //System.err.println("Error al buscar el estudiante");
             e = null;
         }
         return e;
@@ -141,7 +155,7 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
             e = estudiantes.stream().filter(es -> es.getNombre().equals(name)).findFirst().get();
         } catch (Exception e1) {
             // Print error
-            System.out.println("Error al buscar el estudiante");
+            //System.err.println("Error al buscar el estudiante");
             e = null;
         }
         return e;

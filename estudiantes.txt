@@ -14,7 +14,7 @@ G8;870;Rodriguez,Andres;5;4.8
 G3;45;Sanchez,Liliana;4;5
 G2;2;Soto,Diego;4;3.8
 G4;887;Tineo,Luca;3;3.8
-G4;665;Rosales,Juan Daniel;3.8;4.8
+G4;665;Rosales,Juan_Daniel;3.8;4.8
 G2;889;VARGAS,Teresa;3.8;4.7
 G8;990;Vasquez,Sanchez,Santiago;4.8;4.5
 G2;997;Vera,Lilia;4.7;5
