@@ -1,4 +1,4 @@
-import java.util.List;
+import java.util.ArrayList;
 
 public interface IntEstudiante extends java.rmi.Remote {
 
@@ -18,7 +18,7 @@ public interface IntEstudiante extends java.rmi.Remote {
     public float getGrupoEstudiante(int id)
             throws java.rmi.RemoteException;
 
-    public List<Estudiante> getMiembrosGrupo(String grupo)
+    public ArrayList<Estudiante> getMiembrosGrupo(String grupo)
             throws java.rmi.RemoteException;
 
 }

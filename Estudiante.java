@@ -5,13 +5,14 @@ public class Estudiante {
     private String grupo;
     private int id;
     private String nombre;
-    private ArrayList<Integer> notas;
+    private ArrayList<Float> notas;
 
-    public Estudiante(String grupo, int id, String nombre) {
+  
+    public Estudiante(String grupo, int id, String nombre, ArrayList<Float> notas) {
         this.grupo = grupo;
         this.id = id;
         this.nombre = nombre;
-        this.notas = new ArrayList<>();
+        this.notas = notas;
     }
 
     public String getGrupo() {
@@ -38,13 +39,20 @@ public class Estudiante {
         this.nombre = nombre;
     }
 
-    public ArrayList<Integer> getNotas() {
+    public ArrayList<Float> getNotas() {
         return notas;
     }
 
-    public void setNotas(ArrayList<Integer> notas) {
+    public void setNotas(ArrayList<Float> notas) {
         this.notas = notas;
     }
+
+    @Override
+    public String toString() {
+        return "Estudiante [grupo=" + grupo + ", id=" + id + ", nombre=" + nombre + ", notas=" + notas + "]";
+    }
+
+    
 
     
 
