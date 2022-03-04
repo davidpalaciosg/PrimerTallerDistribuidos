@@ -5,6 +5,7 @@ public class ServerEstudiante {
             System.out.println("Servidor iniciado");
         } catch (Exception e) {
             System.err.println("System exception" + e);
+            System.exit(0);
         }
     }
     

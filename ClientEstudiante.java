@@ -9,7 +9,7 @@ public class ClientEstudiante {
          * args[1] -> método remoto a ejecutar
          * args[2] -> parámetro del método
          */
-        if (args.length < 3) {
+        if (args.length !=3) {
             System.out.println("Error en la cantidad de argumentos");
             System.exit(0);
         }
