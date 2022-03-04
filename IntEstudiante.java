@@ -15,7 +15,7 @@ public interface IntEstudiante extends java.rmi.Remote {
     public float getPromedioNotasEstudiante(int id)
             throws java.rmi.RemoteException;
 
-    public float getGrupoEstudiante(int id)
+    public String getGrupoEstudiante(int id)
             throws java.rmi.RemoteException;
 
     public ArrayList<Estudiante> getMiembrosGrupo(String grupo)

@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.rmi.RemoteException;
+import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
@@ -12,7 +13,13 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
     public ImplEstudiante(String name) throws RemoteException {
         super();
         estudiantes = new ArrayList<>();
-
+        try {
+            System.out.println("Rebind Object " + name);
+            Naming.rebind(name, this);
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -69,42 +76,73 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
 
     @Override
     public String getNombreEstudiante(int id) throws RemoteException {
-        // TODO Auto-generated method stub
-        return null;
+        Estudiante e = getEstudianteById(id);
+        if (e != null)
+            return e.getNombre();
+        return "Estudiante no encontrado";
     }
 
     @Override
     public float getPromedioNotasEstudiante(String nombre) throws RemoteException {
-        // TODO Auto-generated method stub
+        Estudiante e = getEstudianteByName(nombre);
+        if (e != null) {
+            float promedio = 0;
+            for (Float nota : e.getNotas()) {
+                promedio += nota;
+            }
+            return promedio / e.getNotas().size();
+        }
         return 0;
     }
 
     @Override
     public float getPromedioNotasEstudiante(int id) throws RemoteException {
-        // TODO Auto-generated method stub
+        Estudiante e = getEstudianteById(id);
+        if (e != null) {
+            float promedio = 0;
+            for (Float nota : e.getNotas()) {
+                promedio += nota;
+            }
+            return promedio / e.getNotas().size();
+        }
         return 0;
     }
 
     @Override
-    public float getGrupoEstudiante(int id) throws RemoteException {
-        // TODO Auto-generated method stub
-        return 0;
+    public String getGrupoEstudiante(int id) throws RemoteException {
+        Estudiante e = getEstudianteById(id);
+        if (e != null)
+            return e.getGrupo();
+        return "Estudiante no encontrado";
     }
 
     @Override
     public ArrayList<Estudiante> getMiembrosGrupo(String grupo) throws RemoteException {
-        // TODO Auto-generated method stub
-        return null;
+        ArrayList<Estudiante> miembros = new ArrayList<>();
+        estudiantes.stream().filter(es -> es.getGrupo() == grupo).forEach(es -> miembros.add(es));
+        return miembros;
     }
 
     public Estudiante getEstudianteById(int id) {
         Estudiante e;
-        try{
-            e= estudiantes.stream().filter(es -> es.getId() == id).findFirst().get(); 
-        }catch(Exception e1){
-            //Print error
+        try {
+            e = estudiantes.stream().filter(es -> es.getId() == id).findFirst().get();
+        } catch (Exception e1) {
+            // Print error
             System.out.println("Error al buscar el estudiante");
-            e=null;
+            e = null;
+        }
+        return e;
+    }
+
+    public Estudiante getEstudianteByName(String name) {
+        Estudiante e;
+        try {
+            e = estudiantes.stream().filter(es -> es.getNombre().equals(name)).findFirst().get();
+        } catch (Exception e1) {
+            // Print error
+            System.out.println("Error al buscar el estudiante");
+            e = null;
         }
         return e;
     }
