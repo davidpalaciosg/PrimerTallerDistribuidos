@@ -30,23 +30,23 @@ $ java ServerEstudiante
 $ java ClientEstudiante <ipServidorPuerto> <metodo> <parametro> 
 ```
 
- * getNombreEstudiante <id> : Devuelve el nombre de un estudiante dando su id. Ejemplo:
+ * getNombreEstudiante (id) : Devuelve el nombre de un estudiante dando su id. Ejemplo:
 ```java
 $ java ClientEstudiante 25.72.66.53:1099 getNombreEstudiante 665
 ```
-* getPromedioNotasEstudiante<id> : Devuelve el promedio de notas de un estudiante dando su id. Ejemplo:
+* getPromedioNotasEstudiante (id) : Devuelve el promedio de notas de un estudiante dando su id. Ejemplo:
 ```java
 $ java ClientEstudiante 25.72.66.53:1099  getPromedioNotasEstudiante 665
 ```
-* getPromedioNotasEstudiante<nombre> : Devuelve el promedio de notas de un estudiante dando su nombre. Ejemplo:
+* getPromedioNotasEstudiante (nombre) : Devuelve el promedio de notas de un estudiante dando su nombre. Ejemplo:
 ```java
 $ java ClientEstudiante 25.72.66.53:1099  getPromedioNotasEstudiante Meneses,Enrique
 ```
-* getGrupoEstudiante<id> : Devuelve el grupo de un estudiante dando su id. Ejemplo:
+* getGrupoEstudiante (id) : Devuelve el grupo de un estudiante dando su id. Ejemplo:
 ```java
 $ java ClientEstudiante 25.72.66.53:1099  getGrupoEstudiante 665
 ```
-* getMiembrosGrupo<grupo> : Devuelve la información del grupo de estudiantes pertenecientes a un grupo. Ejemplo:
+* getMiembrosGrupo (grupo) : Devuelve la información del grupo de estudiantes pertenecientes a un grupo. Ejemplo:
 ```java
 $ java ClientEstudiante 25.72.66.53:1099  getGrupoEstudiante G4
 ```
