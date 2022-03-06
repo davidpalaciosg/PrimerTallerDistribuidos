@@ -1,5 +1,10 @@
 import java.rmi.*;
 
+/**
+ * @author Enrique Palacios García
+ * @author José Fernando Zuluaga
+ * @author Daniel Morales
+ */
 public class ClientEstudiante {
     public static void main(String[] args) {
 
@@ -28,6 +33,12 @@ public class ClientEstudiante {
         }
     }
 
+    /**
+     * Maneja las entradas del cliente
+     * @param miEstudiante clase que se encargara de ejecutar el metodo remoto correspondiente
+     * @param metodo metodo remoto a ejecutar
+     * @param parametro argumento de entrada para el metodo remoto
+     */
     private static void menu(IntEstudiante miEstudiante, String metodo, String parametro) {
         try {
 

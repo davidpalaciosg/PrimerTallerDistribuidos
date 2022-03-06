@@ -1,4 +1,9 @@
 import java.util.ArrayList;
+/**
+ * @author Enrique Palacios García
+ * @author José Fernando Zuluaga
+ * @author Daniel Morales
+ */
 
 public class Estudiante {
 
@@ -7,14 +12,20 @@ public class Estudiante {
     private String nombre;
     private ArrayList<Float> notas;
 
-  
+    /**
+     * Constructor de un estudiante
+     * @param grupo
+     * @param id
+     * @param nombre
+     * @param notas
+     */
     public Estudiante(String grupo, int id, String nombre, ArrayList<Float> notas) {
         this.grupo = grupo;
         this.id = id;
         this.nombre = nombre;
         this.notas = notas;
     }
-
+    //Getters y setters
     public String getGrupo() {
         return grupo;
     }
@@ -46,7 +57,9 @@ public class Estudiante {
     public void setNotas(ArrayList<Float> notas) {
         this.notas = notas;
     }
-
+    /**
+     * Retorna una cadena representando la informacion de un estudiante.
+     */
     @Override
     public String toString() {
         return "Estudiante [grupo=" + grupo + ", id=" + id + ", nombre=" + nombre + ", notas=" + notas + "]";

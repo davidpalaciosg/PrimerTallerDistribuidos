@@ -6,10 +6,19 @@ import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
+/**
+ * @author Enrique Palacios García
+ * @author José Fernando Zuluaga
+ * @author Daniel Morales
+ */ 
 public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante {
 
     ArrayList<Estudiante> estudiantes;
-
+    /**
+     * Constructor principal de la implementacion del estudiante, inicializa la lectura del archivo de texto.
+     * @param name
+     * @throws RemoteException
+     */
     public ImplEstudiante(String name) throws RemoteException {
         super();
         estudiantes = new ArrayList<>();
@@ -23,6 +32,14 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
         }
     }
 
+
+    /**
+     * Lee un archivo de texto para ser procesado como sea requerido. adicionalmente llena el arraylist estudiante
+     * con los registros del archivo de texto.
+     * @param nombreArchivo el nombre del archivo de texto a procesar
+     * @return true si logro abrir el archivo exitosamente, de lo contrario false.
+     * @throws java.rmi.RemoteException
+     */
     @Override
     public boolean leerArchivo(String nombreArchivo) throws RemoteException {
 
@@ -75,6 +92,13 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
         return true;
     }
 
+    /**
+     * Dado un id de estudiante, busca en el archivo de texto el nombre correspondiente mediante la funcion auxiliar
+     * getEstudianteById.
+     * @param id el registro numerico del estudiante en el archivo
+     * @return el nombre del estudiante asociado al id ingresado
+     * @throws java.rmi.RemoteException
+     */
     @Override
     public String getNombreEstudiante(int id) throws RemoteException {
         Estudiante e = getEstudianteById(id);
@@ -83,6 +107,13 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
         return "Estudiante no encontrado";
     }
 
+    /**
+     * Obtiene el promedio de notas de un estudiante dado su nombre mediante la funcion auxiliar
+     * getEstudianteByName.
+     * @param nombre el nombre del estudiante para el cual se obtendra el promedio.
+     * @return el promedio de notas del estudiante.
+     * @throws java.rmi.RemoteException
+     */
     @Override
     public float getPromedioNotasEstudiante(String nombre) throws RemoteException {
         Estudiante e = getEstudianteByName(nombre);
@@ -96,6 +127,12 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
         return 0;
     }
 
+    /**
+     * Recorre el arraylist de estudiantes para obtener el promedio de notas de un estudiante en particular.
+     * @param id registro numerico del estudiante para el cual se obtendra el promedio de notas.
+     * @return el promedio de notas del estudiante
+     * @throws java.rmi.RemoteException
+     */
     @Override
     public float getPromedioNotasEstudiante(int id) throws RemoteException {
         Estudiante e = getEstudianteById(id);
@@ -109,6 +146,12 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
         return 0;
     }
 
+    /**
+     * Muestra el grupo de trabajo al que un estudiante pertenece.
+     * @param id el registro numerico del estudiante sobre el cual se buscara su grupo.
+     * @return el identificador del grupo de trabajo del estudiante
+     * @throws java.rmi.RemoteException
+     */
     @Override
     public String getGrupoEstudiante(int id) throws RemoteException {
         Estudiante e = getEstudianteById(id);
@@ -117,6 +160,12 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
         return "Estudiante no encontrado";
     }
 
+    /**
+     * Almacena en un arraylist auxiliar, los miembros de un grupo de trabajo en particular, luego concatena sus nombres en una cadena.
+     * @param grupo el identificador del grupo de trabajo a buscar.
+     * @return la cadena que contiene los nombres de los integrantes
+     * @throws java.rmi.RemoteException
+     */
     @Override
     public String getMiembrosGrupo(String grupo) throws RemoteException {
         ArrayList<Estudiante> miembros = new ArrayList<>();
@@ -136,7 +185,12 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
         }
         return cadena;
     }
-
+    
+    /**
+     * Funcion auxiliar que filtra el arraylist de estudiantes, para buscar el estudiante que posea el id de entrada
+     * @param id el id del estudiante a buscar
+     * @return el estudiante encontrado
+     */
     public Estudiante getEstudianteById(int id) {
         Estudiante e;
         try {
@@ -149,6 +203,11 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
         return e;
     }
 
+    /**
+     * Funcion auxiliar que filtra el arraylist de estudiantes, para buscar el estudiante que posea el nombre de entrada
+     * @param name el nombre del estudiante a buscar
+     * @return el estudiante encontrado
+     */
     public Estudiante getEstudianteByName(String name) {
         Estudiante e;
         try {
