@@ -27,7 +27,7 @@ $ java ServerEstudiante
 
 4. Iniciar clientes. Para esto, existen 5 casos de uso que se ejecutan de la siguiente manera:
 ```bash
-$ java ClientEstudiante <ipServidorPuerto> <metodo> <parametro> 
+$ java ClientEstudiante <ipServidor:Puerto> <metodo> <parametro> 
 ```
 
  * getNombreEstudiante (id) : Devuelve el nombre de un estudiante dando su id. Ejemplo:
