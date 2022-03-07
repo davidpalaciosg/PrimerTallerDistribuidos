@@ -48,5 +48,5 @@ $ java ClientEstudiante 25.72.66.53:1099  getGrupoEstudiante 665
 ```
 * getMiembrosGrupo (grupo) : Devuelve la información del grupo de estudiantes pertenecientes a un grupo. Ejemplo:
 ```java
-$ java ClientEstudiante 25.72.66.53:1099  getGrupoEstudiante G4
+$ java ClientEstudiante 25.72.66.53:1099  getMiembrosGrupo G4
 ```
