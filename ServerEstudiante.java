@@ -1,5 +1,5 @@
 /**
- * @author Enrique Palacios García
+ * @author David Palacios García
  * @author José Fernando Zuluaga
  * @author Daniel Morales
  */

@@ -7,7 +7,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 /**
- * @author Enrique Palacios García
+ * @author David Palacios García
  * @author José Fernando Zuluaga
  * @author Daniel Morales
  */ 
@@ -93,7 +93,7 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
     }
 
     /**
-     * Dado un id de estudiante, busca en el archivo de texto el nombre correspondiente mediante la funcion auxiliar
+     * Dado un id de estudiante, busca en el ArrayList de Estudiantes el nombre correspondiente mediante la funcion auxiliar
      * getEstudianteById.
      * @param id el registro numerico del estudiante en el archivo
      * @return el nombre del estudiante asociado al id ingresado
@@ -161,7 +161,7 @@ public class ImplEstudiante extends UnicastRemoteObject implements IntEstudiante
     }
 
     /**
-     * Almacena en un arraylist auxiliar, los miembros de un grupo de trabajo en particular, luego concatena sus nombres en una cadena.
+     * Almacena en un arraylist auxiliar, los miembros de un grupo de trabajo en particular, luego concatena su información en una cadena.
      * @param grupo el identificador del grupo de trabajo a buscar.
      * @return la cadena que contiene los nombres de los integrantes
      * @throws java.rmi.RemoteException
